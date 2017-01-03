@@ -12,7 +12,7 @@ class CreateRatingsTable extends Migration
      */
     public function up()
     {
-        //za svaki ratings nam je bitno ime filma,
+
         Schema::create('ratings', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->foreign('user_id')->reference('id')->on('users')->onDelete('cascade');
