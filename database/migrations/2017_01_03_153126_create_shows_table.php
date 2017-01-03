@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRatingsTable extends Migration
+class CreateShowsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,14 @@ class CreateRatingsTable extends Migration
      */
     public function up()
     {
-        //za svaki ratings nam je bitno ime filma,
-        Schema::create('ratings', function (Blueprint $table) {
+        Schema::create('shows', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned()->foreign('user_id')->reference('id')->on('users')->onDelete('cascade');
             $table->integer('movie_id')->unsigned()->foreign('movie_id')->reference('id')->on('movies')->onDelete('cascade');
-            $table->float('rating');
+            $table->integer('room_id')->unsigned()->foreign('room_id')->reference('id')->on('rooms')->onDelete('cascade');
+            $table->dateTime('date');
+           // $table->timestamp('date_time');
+            $table->integer('price');
+
             $table->rememberToken();
             $table->timestamps();
         });
@@ -30,6 +32,6 @@ class CreateRatingsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('ratings');
+        Schema::drop('shows');
     }
 }

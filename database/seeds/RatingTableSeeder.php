@@ -12,35 +12,35 @@ class RatingTableSeeder extends Seeder
      */
     public function run()
     {
+        /* $table->increments('id');
+            $table->integer('user_id')->unsigned()->foreign('user_id')->reference('id')->on('users')->onDelete('cascade');
+            $table->integer('movie_id')->unsigned()->foreign('movie_id')->reference('id')->on('movies')->onDelete('cascade');
+            $table->float('rating');*/
+
+
         $rating1  = new  Rating();
-        $rating1->movie_name = "Black Swan";
+        $rating1->user_id = 2;
+        $rating1->movie_id = 3;
         $rating1->rating = 8.24;
         $rating1->save();
 
         $rating2  = new  Rating();
-        $rating2->movie_name = "Beautiful mind";
+        $rating2->user_id = 3;
+        $rating2->movie_id = 5;
         $rating2->rating = 8.2;
         $rating2->save();
 
         $rating3  = new  Rating();
-        $rating3->movie_name = "Star wars 1";
-        $rating3->rating = 0.0;
+        $rating3->user_id = 4;
+        $rating3->movie_id = 2;
+        $rating3->rating = 5.0;
         $rating3->save();
 
         $rating4  = new  Rating();
-        $rating4->movie_name = "Godfather 1";
-        $rating4->rating = 0.0;
+        $rating4->user_id = 2;
+        $rating4->movie_id = 1;
+        $rating4->rating = 8.0;
         $rating4->save();
-
-        $rating5  = new  Rating();
-        $rating5->movie_name = "Life is beautiful";
-        $rating5->rating = 0.0;
-        $rating5->save();
-
-        $rating6  = new  Rating();
-        $rating6->movie_name = "King's speech";
-        $rating6->rating = 0.0;
-        $rating6->save();
 
 
 
