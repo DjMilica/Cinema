@@ -15,8 +15,8 @@ class CreateRatingsTable extends Migration
         //za svaki ratings nam je bitno ime filma,
         Schema::create('ratings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('movie_name');
-            $table->decimal('rating', 5,2);
+            $table->string('movie_name')->unique();
+            $table->float('rating');
             $table->rememberToken();
             $table->timestamps();
         });
