@@ -39,6 +39,7 @@ class UserController extends Controller{
         $user->first_name = $first_name;
         $user->last_name = $last_name;
         $user->password = $password;
+        $user->role_id = 2;
         $user->save(); //ovo upisuje u bazu ove informacije
 
         Auth::login($user);
@@ -55,7 +56,8 @@ class UserController extends Controller{
     }
 
     public function getDashboard(){
-        return view('dashboard');
+        // return view('dashboard');
+        return redirect()->route('dash');
     }
     public function  postSignIn(Request $request){
         $this->validate($request,[

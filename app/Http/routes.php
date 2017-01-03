@@ -42,5 +42,11 @@ Route::get('/getsignin', [
     'as'=>'signinform'
 ]);
 
+Route::get('/dash', [
+    'uses'=>'DashboardController@index',
+    'as'=>'dash',
+    'middleware' => 'auth'
+]);
+
 
 
