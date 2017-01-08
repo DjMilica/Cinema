@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+
 class User extends Model implements Authenticatable
 {
     /* php artisan make:model User -m ovako se pravi ovaj model i tabela za bazu kod migrations!
@@ -15,4 +17,20 @@ class User extends Model implements Authenticatable
         onda bismo u folderu config, u fajlu auth.php zamenili kod providers, pa model
         App\Dog::class */
     use \Illuminate\Auth\Authenticatable;
+
+    public function isAdmin()
+    {
+        $adminUsers = DB::table('users')->where('users.id', '=', $this->id)->join('roles', 'users.role_id', '=', 'roles.id')->where('roles.role_description', '=', 'Admin')->get();
+
+        if(count($adminUsers) > 0)
+        {
+            // I am an admin
+            return true;
+        }
+        else
+        {
+            // I'm not
+            return false;
+        }
+    }
 }

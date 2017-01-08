@@ -17,14 +17,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $isAdmin = $this->getIsAdmin(Auth::user());
-
-        // Save isAdmin in a session so i don't have to pass it to every page
-        // Do I have to put it in the constructor?
-        Session::put('isAdmin', $isAdmin);
-
-        $registeredUsers = User::all()->count();
-        return view('dashboardParts.dashboard');
+        return view('adminPanel.dash');
     }
 
     /**
@@ -32,19 +25,5 @@ class DashboardController extends Controller
      * @param $currentUser
      * @return true if I'm an admin, false otherwise
      */
-    public function getIsAdmin($currentUser)
-    {
-        $adminUsers = DB::table('users')->where('users.id', '=', $currentUser->id)->join('roles', 'users.role_id', '=', 'roles.id')->where('roles.role_description', '=', 'Admin')->get();
 
-        if(count($adminUsers) > 0)
-        {
-            // I am an admin
-            return true;
-        }
-        else
-        {
-            // I'm not
-            return false;
-        }
-    }
 }

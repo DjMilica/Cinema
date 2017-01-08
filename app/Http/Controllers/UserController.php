@@ -56,8 +56,8 @@ class UserController extends Controller{
     }
 
     public function getDashboard(){
-        // return view('dashboard');
-        return redirect()->route('dash');
+         return view('dashboardParts.dashboard');
+        //return redirect()->route('dash');
     }
     public function  postSignIn(Request $request){
         $this->validate($request,[
@@ -71,7 +71,12 @@ class UserController extends Controller{
         /* za ovo nam pomaze Auth koje je implementirano u laravelu. Fja attempt vraca true ako
             je uspelo sign in, i vraca false ako nije */
         if(Auth::attempt(['email'=> $request['email'],'password'=> $request['password']])){
-            return redirect()->route('dashboard');
+            if($request->user()->isAdmin()){
+                return redirect()->route('dash');
+            }
+            else {
+                return redirect()->route('dashboard');
+            }
         }
         return redirect()->back();
     }

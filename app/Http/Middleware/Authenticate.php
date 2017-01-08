@@ -22,7 +22,8 @@ class Authenticate
                 return response('Unauthorized.', 401);
             } else {
                 //izmenili umesto guest('login') stavili route('home')
-                return redirect()->route('home+');
+               return redirect()->route('home');
+               // return response("Insufficient permissions", 401);
             }
         }
 

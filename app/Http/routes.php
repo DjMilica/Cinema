@@ -34,7 +34,8 @@ Route::post('/signin',[
 
 Route::get('/logout', [
     'uses'=>'UserController@getLogOut',
-    'as'=>'logout'
+    'as'=>'logout',
+    'middleware' => 'auth'
 ]);
 
 Route::get('/getsignin', [
@@ -45,7 +46,7 @@ Route::get('/getsignin', [
 Route::get('/dash', [
     'uses'=>'DashboardController@index',
     'as'=>'dash',
-    'middleware' => 'auth'
+    'middleware' => 'roles'
 ]);
 
 
