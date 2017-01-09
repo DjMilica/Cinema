@@ -32,7 +32,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <span class="glyphicon glyphicon-list"></span>
+                <span class="glyphicon glyphicon-calendar"></span>
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Manage Repertoires</a>
             </h4>
         </div>
@@ -61,7 +61,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <span class="glyphicon glyphicon-file"></span>
+                    <span class="glyphicon glyphicon-print"></span>
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Reports</a>
                 </h4>
             </div>
