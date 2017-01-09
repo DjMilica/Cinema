@@ -17,7 +17,9 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('adminPanel.dash');
+        
+        $registeredUsers = User::all()->count();
+        return view('adminPanel.dash')->with('registeredUsers', $registeredUsers);;
     }
 
 }
