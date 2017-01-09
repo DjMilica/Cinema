@@ -19,7 +19,39 @@ class DashboardController extends Controller
     {
         return view('adminPanel.dash');
     }
+    public function getAboutUs()
+    {
+        return view('dashboardParts.aboutUs');
 
+    }
+
+
+    public function getReservation()
+    {
+        return view('dashboardParts.reservation');
+
+    }
+
+
+    public function getContact()
+    {
+        return view('dashboardParts.contact');
+
+    }
+
+
+
+    public function getRating()
+    {
+        return view('dashboardParts.rating');
+
+    }
+
+    public function getRepertoar()
+    {
+        return view('dashboardParts.repertoar');
+
+    }
     /**
      * Tells if I'm an Admin
      * @param $currentUser

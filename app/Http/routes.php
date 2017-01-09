@@ -50,4 +50,36 @@ Route::get('/dash', [
 ]);
 
 
+Route::get('/aboutUs', [
+    'uses'=>'DashboardController@getAboutUs',
+    'as'=>'aboutUs',
+    'middleware' => 'auth'
+]);
+
+Route::get('/reservation', [
+    'uses'=>'DashboardController@getReservation',
+    'as'=>'reservation',
+    'middleware' => 'auth'
+]);
+
+Route::get('/rating', [
+    'uses'=>'DashboardController@getRating',
+    'as'=>'rating',
+    'middleware' => 'auth'
+]);
+
+Route::get('/contact', [
+    'uses'=>'DashboardController@getContact',
+    'as'=>'contact',
+    'middleware' => 'auth'
+]);
+
+Route::post('contact/send', 'ContactController@send');
+
+Route::get('/repertoar', [
+    'uses'=>'DashboardController@getRepertoar',
+    'as'=>'repertoar',
+    'middleware' => 'auth'
+]);
+
 
