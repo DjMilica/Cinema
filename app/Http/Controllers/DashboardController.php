@@ -15,10 +15,7 @@ use Illuminate\Support\Facades\Session;
 
 class DashboardController extends Controller
 {
-    public function index()
-    {
-        return view('adminPanel.dash');
-    }
+    
     public function getAboutUs()
     {
         return view('dashboardParts.aboutUs');
@@ -53,9 +50,8 @@ class DashboardController extends Controller
 
     }
     /**
-     * Tells if I'm an Admin
-     * @param $currentUser
-     * @return true if I'm an admin, false otherwise
+     * 
+     
      */
 
 }

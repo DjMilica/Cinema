@@ -20,13 +20,7 @@ Route::post('/signup', [
     'uses' => 'UserController@postSignUp',
     'as'=>'signup'
 ]);
-Route::get('/dashboard',[
-    'uses'=> 'UserController@getDashboard',
-    'as'=> 'dashboard',
-    //hocemo da ova stranica bude vidljiva samo onima koji su logovani!
-    //auth a ne Authenticate kako je u App/Http/Middleware jer  u Kernel.php tako pise da treba da se naziva
-    'middleware' => 'auth'
-]);
+
 Route::post('/signin',[
     'uses'=>'UserController@postSignIn',
     'as'=>'signin'
@@ -43,43 +37,54 @@ Route::get('/getsignin', [
     'as'=>'signinform'
 ]);
 
-Route::get('/dash', [
-    'uses'=>'DashboardController@index',
-    'as'=>'dash',
-    'middleware' => 'roles'
+/* USER rute!!!!!! */
+
+Route::get('/dashboard',[
+    'uses'=> 'UserController@getDashboard',
+    'as'=> 'dashboard',
+    //hocemo da ova stranica bude vidljiva samo onima koji su logovani!
+    //auth a ne Authenticate kako je u App/Http/Middleware jer  u Kernel.php tako pise da treba da se naziva
+    'middleware' => 'auth'
 ]);
 
-
-Route::get('/aboutUs', [
+Route::get('/dashboard/aboutUs', [
     'uses'=>'DashboardController@getAboutUs',
     'as'=>'aboutUs',
     'middleware' => 'auth'
 ]);
 
-Route::get('/reservation', [
+Route::get('/dashboard/reservation', [
     'uses'=>'DashboardController@getReservation',
     'as'=>'reservation',
     'middleware' => 'auth'
 ]);
 
-Route::get('/rating', [
+Route::get('/dashboard/rating', [
     'uses'=>'DashboardController@getRating',
     'as'=>'rating',
     'middleware' => 'auth'
 ]);
 
-Route::get('/contact', [
+Route::get('/dashboard/contact', [
     'uses'=>'DashboardController@getContact',
     'as'=>'contact',
     'middleware' => 'auth'
 ]);
 
-Route::post('contact/send', 'ContactController@send');
+Route::post('/dashboard/contact/send', 'ContactController@send');
 
-Route::get('/repertoar', [
+Route::get('/dashboard/repertoar', [
     'uses'=>'DashboardController@getRepertoar',
     'as'=>'repertoar',
     'middleware' => 'auth'
+]);
+
+/* ADMIN RUTE */
+
+Route::get('/admin', [
+    'uses'=>'AdminController@index',
+    'as'=>'dash',
+    'middleware' => 'roles'
 ]);
 
 
