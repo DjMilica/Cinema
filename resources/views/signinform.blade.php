@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Welcome!
+    Sign in
 @endsection
 
 @include('includes.header')

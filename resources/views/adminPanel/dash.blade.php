@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')
+Admin
+@endsection
 @include('includes.headerForAdmin')
 @section('content')
     <div class="container">

@@ -19,7 +19,7 @@ class AdminController extends Controller
     {
         
         $registeredUsers = User::all()->count();
-        return view('adminPanel.dash')->with('registeredUsers', $registeredUsers);;
+        return view('adminPanel.dash')->with('registeredUsers', $registeredUsers);
     }
 
 }

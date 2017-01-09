@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')
+    Contact
+@endsection
 @include('includes.headerForDash')
 @section('content')
 
