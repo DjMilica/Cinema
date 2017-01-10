@@ -12,7 +12,7 @@
                 <table class="table">
                     <tr>
                         <td>
-                            <span class="glyphicon glyphicon-plus"></span> <a href="#">Add a movie</a>
+                            <span class="glyphicon glyphicon-plus"></span> <a href="{{route('addmovie')}}">Add a movie</a>
                         </td>
                     </tr>
                     <tr>
@@ -22,7 +22,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <span class="glyphicon glyphicon-trash"></span> <a href="#">Delete a movie</a>
+                            <span class="glyphicon glyphicon-trash"></span> <a href="{{route('deletemovie')}}">Delete a movie</a>
                         </td>
                     </tr>
                 </table>

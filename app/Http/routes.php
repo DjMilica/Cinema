@@ -87,4 +87,14 @@ Route::get('/admin', [
     'middleware' => 'roles'
 ]);
 
+Route::get('/admin/addMovie',[
+  'uses' => 'AdminController@addMovie',
+    'as' => 'addmovie',
+    'middleware' => 'roles'
+]);
 
+Route::get('/admin/deleteMovie',[
+    'uses' => 'AdminController@deleteMovie',
+    'as' => 'deletemovie',
+    'middleware' => 'roles'
+]);
