@@ -22,7 +22,7 @@ class CreateMoviesTable extends Migration
             //$table->dateTime('time');
             //$table->string('password')->unique();
            // $table->string('poster'); slika filma
-            $table->float('rating');
+           // $table->float('rating');
             $table->rememberToken();
             $table->timestamps();
         });

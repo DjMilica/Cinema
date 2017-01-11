@@ -19,6 +19,7 @@
                 <ul class="nav navbar-nav">
 
                     <li><a href="{{ route('aboutUs') }}">O nama</a></li>
+                    <li><a href="{{ route('movies') }}">Filmovi</a></li>
                     <li><a href="{{ route('repertoar') }}">Repertoar</a></li>
                     <li><a href="{{ route('reservation') }}">Rezervacije</a></li>
                     <li><a href="{{ route('rating') }}">Ocenjivanje</a></li>

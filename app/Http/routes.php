@@ -79,6 +79,12 @@ Route::get('/dashboard/repertoar', [
     'middleware' => 'auth'
 ]);
 
+Route::get('/dashboard/movies', [
+    'uses'=>'MovieController@index',
+    'as'=>'movies',
+    'middleware' => 'auth'
+]);
+
 /* ADMIN RUTE */
 
 Route::get('/admin', [
