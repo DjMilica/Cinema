@@ -4,12 +4,47 @@
 @endsection
 @include('includes.headerForDash')
 @section('content')
-    <h1> Filmovi koji su se prikazuju </h1>
+    <h1> Filmovi koji su se prikazuju u nasem biskopu </h1>
+    <br>
+    <br>
     @foreach($movies as $movie)
-        <p> {{$movie->name}} </p>
-        <img src="{{ asset('posters/' . $movie->uri_poster) }}" />
 
+    <div class="media">
+        <div class="media-left media-middle">
+
+
+
+            <a href="#">
+                <img class="media-object" src="{{ asset('posters/' . $movie->uri_poster) }}" alt="...">
+            </a>
+        </div>
+        <div class="media-body">
+
+            <ul class="list-group">
+                <li class="list-group-item" >
+                    <dl class="dl-horizontal">
+                        <dt>Naziv filma</dt>
+                        <dd>{{$movie->name}}</dd>
+                    </dl>
+                </li>
+                <li class="list-group-item">
+                    <dl class="dl-horizontal">
+                        <dt>Godina</dt>
+                        <dd>{{$movie->year}}</dd>
+                    </dl>
+                </li>
+                <li class="list-group-item">
+                    <dl class="dl-horizontal">
+                        <dt>Reziser</dt>
+                        <dd>{{$movie->director}}</dd>
+                    </dl>
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
     @endforeach
-
 
 @endsection
