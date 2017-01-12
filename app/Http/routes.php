@@ -171,3 +171,25 @@ Route::get('/admin/movies',[
     'as' => 'moviesadmin',
     'middleware' => 'roles'
 ]);
+
+Route::get('/admin/emailAll',[
+    'uses' => 'AdminController@getEmailAll',
+    'as' => 'emailall',
+    'middleware' => 'roles'
+]);
+Route::get('/admin/email',[
+    'uses' => 'AdminController@getEmail',
+    'as' => 'email',
+    'middleware' => 'roles'
+]);
+
+Route::post('/admin/emailAll/send',[
+    'uses' => 'AdminController@postEmailAll',
+    'as' => 'sendemailall',
+    'middleware' => 'roles'
+]);
+Route::post('/admin/email/send',[
+    'uses' => 'AdminController@postEmail',
+    'as' => 'sendemail',
+    'middleware' => 'roles'
+]);

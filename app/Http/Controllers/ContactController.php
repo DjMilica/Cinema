@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class ContactController extends Controller
@@ -15,17 +17,17 @@ class ContactController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
+
     public function send(Request $request)
     {
 
-        $to      = 'admin@gmail.com';
-        $subject = 'User request from the form';
-        $message = $request->input('text');;
-        $headers = 'From: '.$request->input('email') . '\r\n' .
-            'Reply-To: webmaster@example.com' . '\r\n' .
-            'X-Mailer: PHP/' . phpversion();
+        $message = $request->input('text');
+        $email = $request->input('email');
 
-        mail($to, $subject, $message, $headers);
+        Mail::send('email',['testVar'=> $message,'email'=>$email],
+            function($message){$message->to('cinemaadimin@gmail.com')->subject(Input::get('subject'));
+                $message->from(Input::get('email'), '');
+            });
 
         \Session::flash('success_flash_message', 'Vasa poruka je poslata. Kontaktiracemo Vas uskoro.');
 

@@ -14,9 +14,14 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Movie;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
+
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\File;
+
 
 class AdminController extends Controller
 {
@@ -165,5 +170,43 @@ class AdminController extends Controller
     public function getMovies(){
         $movies = Movie::all();
         return view('adminPanel.movies')->with(['movies'=>$movies]);
+    }
+
+    public function getEmailAll(){
+        return view('adminPanel.emailAll');
+    }
+
+    public function getEmail(){
+        $users = User::all();
+        return view('adminPanel.email')->with(['users'=>$users]);
+    }
+    //TODO kako da prepoznaam usera u okviru funkcije???
+    public function postEmailAll(Request $request){
+        $users = User::all();
+        $message = $request->input('text');
+
+        foreach ($users->chunk(100) as $user)
+        {
+           // Mail::send('emailAdmin',['testVar'=> $message],
+            //function($message){$message->to($user->email)->subject(Input::get('subject'));});
+        }
+        \Session::flash('success_flash_message', 'You have successfully sent email.');
+        return redirect()->route('dash');
+    }
+
+    public function postEmail(Request $request){
+        //dd(Config::get('mail'));
+
+        $message = $request->input('text');
+
+        Mail::send('emailAdmin',['testVar'=> $message],
+            function($message){$message->to(Input::get('email'))->subject(Input::get('subject'));});
+        \Session::flash('success_flash_message', 'You have successfully sent email.');
+
+
+        return redirect()->route('dash');
+
+
+
     }
 }

@@ -103,13 +103,13 @@
                         <td>
                             <span class="glyphicon glyphicon-user"></span>
                             <span class="glyphicon glyphicon-user"></span>
-                            <a href="#">Send email to all users</a>
+                            <a href="{{route('emailall')}}">Send email to all users</a>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <span class="glyphicon glyphicon-user"></span>
-                            <a href="#">Send email to specific user</a>
+                            <a href="{{route('email')}}">Send email to specific user</a>
                         </td>
                     </tr>
 

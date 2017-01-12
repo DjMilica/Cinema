@@ -4,6 +4,12 @@
 @endsection
 @include('includes.headerForDash')
 @section('content')
+    @if(Session::has('success_flash_message'))
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ Session::get('success_flash_message') }}
+        </div>
+    @endif
     <h1> Trenutne ocene filmova </h1>
     <br>
     <br>
