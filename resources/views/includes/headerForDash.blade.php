@@ -45,5 +45,10 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-
+    @if(Session::has('success_flash_message'))
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ Session::get('success_flash_message') }}
+        </div>
+    @endif
 </header>

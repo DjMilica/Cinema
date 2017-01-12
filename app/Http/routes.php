@@ -65,6 +65,18 @@ Route::get('/dashboard/rating', [
     'middleware' => 'auth'
 ]);
 
+Route::post('/dashboard/rating/addRating',[
+    'uses' => 'DashboardController@postStoreRating',
+    'as' => 'addRating',
+    'middleware' => 'auth'
+]);
+
+Route::get('/dashboard/rating/viewRating', [
+    'uses'=>'DashboardController@viewRating',
+    'as'=>'viewRating',
+    'middleware' => 'auth'
+]);
+
 Route::get('/dashboard/contact', [
     'uses'=>'DashboardController@getContact',
     'as'=>'contact',
@@ -84,6 +96,8 @@ Route::get('/dashboard/movies', [
     'as'=>'movies',
     'middleware' => 'auth'
 ]);
+
+
 
 /* ADMIN RUTE */
 

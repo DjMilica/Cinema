@@ -3,6 +3,9 @@ namespace App\Http\Controllers;
 
 
 use App\Movie;
+
+use Illuminate\Support\Facades\DB;
+use App\Show;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,7 +23,7 @@ class MovieController extends Controller{
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function addRating()
     {
         //
     }

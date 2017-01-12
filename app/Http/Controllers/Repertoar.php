@@ -18,7 +18,7 @@ class Repertoar extends Controller
         $shows = DB::table('shows')
             ->join('movies', 'movies.id', '=','shows.movie_id')
             ->join('rooms','rooms.id','=','shows.room_id')
-            ->select('shows.*','movies.name','rooms.description','movies.uri_poster')
+            ->select('shows.*','movies.name','rooms.description','movies.uri_poster','movies.yt_video_id')
             ->where('shows.date', '>=' ,'2014-12-04')
             ->orderBy('shows.date')
             ->get();
