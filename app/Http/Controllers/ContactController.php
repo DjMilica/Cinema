@@ -16,7 +16,7 @@ class ContactController extends Controller
      */
     public function send(Request $request)
     {
-        // TODO send email using Laravel
+
         $to      = 'admin@gmail.com';
         $subject = 'User request from the form';
         $message = $request->input('text');;

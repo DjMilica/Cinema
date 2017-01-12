@@ -4,7 +4,7 @@
 @endsection
 @include('includes.headerForDash')
 @section('content')
-    <h1> Filmovi koji su se prikazuju u nasem biskopu </h1>
+    <h1> Filmovi koji su se prikazuju u nasem bioskopu </h1>
     <br>
     <br>
     @foreach($movies as $movie)

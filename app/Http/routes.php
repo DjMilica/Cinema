@@ -74,7 +74,7 @@ Route::get('/dashboard/contact', [
 Route::post('/dashboard/contact/send', 'ContactController@send');
 
 Route::get('/dashboard/repertoar', [
-    'uses'=>'DashboardController@getRepertoar',
+    'uses'=>'Repertoar@index',
     'as'=>'repertoar',
     'middleware' => 'auth'
 ]);
