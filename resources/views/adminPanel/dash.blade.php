@@ -11,6 +11,13 @@ Admin
                 @include('adminPanel.menuForEveryPage')
             </div>
             <div class="col-md-9">
+                {{-- ako smo na primer uspesno dodali film, ispisace se poruka o uspesnosti!--}}
+                @if(Session::has('success_flash_message'))
+                    <div class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {{ Session::get('success_flash_message') }}
+                    </div>
+                @endif
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h1 class="panel-title"><span class="label label-default">Dashboard</span></h1>

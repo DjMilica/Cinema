@@ -104,3 +104,8 @@ Route::get('/admin/deleteMovie',[
     'as' => 'deletemovie',
     'middleware' => 'roles'
 ]);
+
+Route::post('/admin/addMovie/storeMovie',[
+    'uses'=>'AdminController@postStoreMovie',
+    'as'=>'storemovie'
+]);
