@@ -24,7 +24,7 @@
                         </ul>
                     </div>
                 @endif
-                <form method="post" action="#">
+                <form method="post" action="{{route('erasemovie')}}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group">
                         <label for="movies">Select a movie:</label>

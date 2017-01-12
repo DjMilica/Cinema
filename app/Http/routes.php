@@ -109,3 +109,8 @@ Route::post('/admin/addMovie/storeMovie',[
     'uses'=>'AdminController@postStoreMovie',
     'as'=>'storemovie'
 ]);
+
+Route::post('/admin/addMovie/eraseMovie',[
+    'uses'=>'AdminController@postEraseMovie',
+    'as'=>'erasemovie'
+]);

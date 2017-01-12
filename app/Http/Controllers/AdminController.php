@@ -14,6 +14,7 @@ use App\Movie;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\File;
 
 class AdminController extends Controller
 {
@@ -72,9 +73,19 @@ class AdminController extends Controller
         // sacuvamo u bazu
         $movie->save();
 
-        \Session::flash('success_flash_message', 'Your movie has been created.');
+        \Session::flash('success_flash_message', 'Your movie has been added to database.');
 
         return redirect()->route('dash');
     }
 
+    public function postEraseMovie(Request $request){
+        $image_url = Movie::findOrFail($request->input('movies'))->uri_poster;
+        Movie::findOrFail($request->input('movies'))->delete();
+        File::delete('posters/' . $image_url);
+
+        \Session::flash('success_flash_message', 'The movie has been deleted from database.');
+
+        $movies = Movie::all();
+        return redirect()->route('dash');
+    }
 }
