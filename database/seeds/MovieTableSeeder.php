@@ -93,7 +93,7 @@ class MovieTableSeeder extends Seeder
         $movie10->year = 1999;
         $movie10->director = "David Fincher";
         $movie10->yt_video_id = "https://www.youtube.com/watch?v=sY1S34973zA";
-        $movie10->uri_poster = 'fight_club.jpg';
+        $movie10->uri_poster = 'fight.jpg';
         //  $movie8->rating = 9.5;
         $movie10->save();
 
