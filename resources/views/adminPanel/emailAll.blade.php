@@ -1,3 +1,7 @@
+@extends('layouts.master')
+@section('title')
+    Email all users
+@endsection
 @include('includes.headerForAdmin')
 @section('content')
 
@@ -8,7 +12,7 @@
             </div>
             <div class="col-md-9">
                 <div class="panel panel-default">
-                    <form method="post" action="{{ route('sendemail') }}">
+                    <form method="post" action="{{ route('sendemailall') }}">
                         <div class="form-group">
                             <label for="subject">Subject</label>
                             <input type="text" name="subject" class="form-control" required>

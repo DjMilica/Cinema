@@ -180,16 +180,21 @@ class AdminController extends Controller
         $users = User::all();
         return view('adminPanel.email')->with(['users'=>$users]);
     }
-    //TODO kako da prepoznaam usera u okviru funkcije???
+
     public function postEmailAll(Request $request){
         $users = User::all();
         $message = $request->input('text');
 
-        foreach ($users->chunk(100) as $user)
+        foreach ($users as $user)
         {
-           // Mail::send('emailAdmin',['testVar'=> $message],
-            //function($message){$message->to($user->email)->subject(Input::get('subject'));});
+            //pravimo ovako funkciju da bismo mogli da koristimo $user!!!!
+            $test = function($message) use ($user)
+            {
+                $message->to($user->email)->subject(Input::get('subject'));
+            };
+            Mail::send('emailAdmin',['testVar'=> $message],$test);
         }
+
         \Session::flash('success_flash_message', 'You have successfully sent email.');
         return redirect()->route('dash');
     }
