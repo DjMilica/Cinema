@@ -22,7 +22,7 @@
                             <textarea name="text" class="form-control" placeholder="Your text here..." required></textarea>
                         </div>
                         <input type="hidden" name="_token" value="{{ Session::token() }}">
-                        <button type="submit" class="btn btn-default">Posaljite</button>
+                        <button type="submit" class="btn btn-default">Send</button>
                     </form>
                 </div>
 
