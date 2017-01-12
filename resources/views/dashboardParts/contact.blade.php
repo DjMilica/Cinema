@@ -25,7 +25,7 @@
                     </address>
 
                 <h1 class="text-center">Kontaktirajte nas</h1>
-                <form method="post" action="{{ url('/contact/send') }}">
+                <form method="post" action="{{ url('/dashboard/contact/send') }}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group">
                         <label for="email">Email adresa</label>

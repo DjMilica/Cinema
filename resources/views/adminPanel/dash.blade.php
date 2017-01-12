@@ -24,7 +24,7 @@ Admin
                     </div>
                     <div class="panel-body">
                         <p>Welcome admin!</p>
-                        <p> Just to let you know : <strong>you have {{ $registeredUsers }} registered users!</strong> </p>
+                        <p> Just to let you know : <strong>you have {{ $registeredUsers -1 }} registered users!</strong> </p>
                     </div>
                 </div>
 

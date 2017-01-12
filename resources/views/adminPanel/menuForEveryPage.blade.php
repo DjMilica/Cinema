@@ -70,17 +70,17 @@
                     <table class="table">
                         <tr>
                             <td>
-                                <span class="glyphicon glyphicon-user"></span><a href="#">Customers</a>
+                                <span class="glyphicon glyphicon-user"></span><a href="{{route('customers')}}">Customers</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <span class="glyphicon glyphicon-tasks"></span><a href="#">Repertoire</a>
+                                <span class="glyphicon glyphicon-tasks"></span><a href="{{route('projections')}}">Repertoire</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <span class="glyphicon glyphicon-film"></span> <a href="#">Movies</a>
+                                <span class="glyphicon glyphicon-film"></span> <a href="{{route('moviesadmin')}}">Movies grades</a>
                             </td>
                         </tr>
                     </table>
@@ -88,38 +88,12 @@
             </div>
         </div>
 
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <span class="glyphicon glyphicon-th"></span>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">Manage Rooms</a>
-                </h4>
-            </div>
-            <div id="collapseSix" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <table class="table">
-                        <tr>
-                            <td>
-                                <span class="glyphicon glyphicon-plus"></span>
-                                <a href="#">Add a room</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="glyphicon glyphicon-trash text-danger"></span>
-                                <a href="#">Delete room</a>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
 
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <span class="glyphicon glyphicon-user"></span>
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Account</a>
+                <span class="glyphicon glyphicon-envelope"></span>
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Send email</a>
             </h4>
         </div>
         <div id="collapseThree" class="panel-collapse collapse">
@@ -127,22 +101,18 @@
                 <table class="table">
                     <tr>
                         <td>
-                            <span class="glyphicon glyphicon-wrench"></span>
-                            <a href="#">Change Password</a>
+                            <span class="glyphicon glyphicon-user"></span>
+                            <span class="glyphicon glyphicon-user"></span>
+                            <a href="#">Send email to all users</a>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <span class="glyphicon glyphicon-pencil"></span>
-                            <a href="#">Edit your info</a>
+                            <span class="glyphicon glyphicon-user"></span>
+                            <a href="#">Send email to specific user</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <span class="glyphicon glyphicon-trash text-danger"></span>
-                            <a href="#">Delete Account</a>
-                        </td>
-                    </tr>
+
                 </table>
             </div>
         </div>

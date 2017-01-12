@@ -30,6 +30,6 @@ class ContactController extends Controller
         \Session::flash('success_flash_message', 'Vasa poruka je poslata. Kontaktiracemo Vas uskoro.');
 
 
-        return redirect('contact');
+        return redirect()->route('contact');
     }
 }

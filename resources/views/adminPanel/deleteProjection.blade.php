@@ -21,7 +21,7 @@
                         </ul>
                     </div>
                 @endif
-                <form method="post" action="{{route('deleteshow')}}">
+               <form method="post" action="{{route('deleteshow')}}">
                     @foreach($movies as $movie)
                         <ul class="list-group">
                             <li class="list-group-item" >
@@ -43,7 +43,24 @@
                     <input type="hidden" name="_token" value="{{ Session::token() }}">
                     <button type="submit" class="btn btn-danger {{ $disable }}"><span class="glyphicon glyphicon-trash"></span> Delete</button>
                 </form>
-
+                {{--todo malo bolje razradi ovu drugu ideju!
+                @foreach($shows as $show)
+                    <form method="post" action="{{route('deleteshow')}}">
+                        <div class="form-group">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    {{--naziv filma, opis sale, vreme projekcije--}
+                                    <p>{{$show->name}}</p>
+                                    <p>{{$show->description}}</p>
+                                    <p>{{$show->date}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <input type="hidden" name="_token" value="{{ Session::token() }}">
+                        <button type="submit" class="btn btn-danger {{ $disable }}"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+                    </form>
+                @endforeach
+            --}}
             </div>
         </div>
     </div>

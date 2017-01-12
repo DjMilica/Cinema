@@ -154,3 +154,20 @@ Route::post('/admin/addProjection/deleteShow',[
     'as' => 'deleteshow',
     'middleware' => 'roles'
 ]);
+
+Route::get('/admin/customers',[
+    'uses' => 'AdminController@getCustomers',
+    'as' => 'customers',
+    'middleware' => 'roles'
+]);
+
+Route::get('/admin/projections',[
+    'uses' => 'AdminController@getProjections',
+    'as' => 'projections',
+    'middleware' => 'roles'
+]);
+Route::get('/admin/movies',[
+    'uses' => 'AdminController@getMovies',
+    'as' => 'moviesadmin',
+    'middleware' => 'roles'
+]);

@@ -131,6 +131,12 @@ class AdminController extends Controller
             $disable = 'disabled';
         }
         $shows = Show::all();
+        /*$shows = DB::table('shows')
+            ->join('movies', 'movies.id', '=','shows.movie_id')
+            ->join('rooms','rooms.id','=','shows.room_id')
+            ->select('shows.*','movies.name','rooms.description')
+            ->orderBy('shows.date')
+            ->get(); */
         return view('adminPanel.deleteProjection')->with(['movies' => $movies, 'disable' => $disable,'shows' => $shows]);
     }
 
@@ -143,4 +149,21 @@ class AdminController extends Controller
         return redirect()->route('dash');
     }
 
+    public function getCustomers(){
+        $users = User::all();
+        return view('adminPanel.customers')->with(['users'=>$users]);
+    }
+    public function getProjections(){
+        $shows = DB::table('shows')
+            ->join('movies', 'movies.id', '=','shows.movie_id')
+            ->join('rooms','rooms.id','=','shows.room_id')
+            ->select('shows.*','movies.name','rooms.description')
+            ->orderBy('shows.date')
+            ->get();
+        return view('adminPanel.projections')->with(['shows'=>$shows]);
+    }
+    public function getMovies(){
+        $movies = Movie::all();
+        return view('adminPanel.movies')->with(['movies'=>$movies]);
+    }
 }
