@@ -11,9 +11,6 @@
                 @include('adminPanel.menuForEveryPage')
             </div>
             <div class="col-md-8">
-                @if(Session::has('success_flash_message'))
-                    @include('parts.success_flash')
-                @endif
                 <h1 class="text-center">Delete a movie</h1>
                 @if (count($errors) > 0)
                     <div class="alert alert-danger">
@@ -25,7 +22,6 @@
                     </div>
                 @endif
                 <form method="post" action="{{route('erasemovie')}}">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group">
                         <label for="movies">Select a movie:</label>
                         <select class="form-control" name="movies">
@@ -34,6 +30,7 @@
                             @endforeach
                         </select>
                     </div>
+                    <input type="hidden" name="_token" value="{{ Session::token() }}">
                     <button type="submit" class="btn btn-danger {{ $disable }}"><span class="glyphicon glyphicon-trash"></span> Delete</button>
                 </form>
 

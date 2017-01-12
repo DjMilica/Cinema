@@ -107,10 +107,36 @@ Route::get('/admin/deleteMovie',[
 
 Route::post('/admin/addMovie/storeMovie',[
     'uses'=>'AdminController@postStoreMovie',
-    'as'=>'storemovie'
+    'as'=>'storemovie',
+    'middleware' => 'roles'
 ]);
 
-Route::post('/admin/addMovie/eraseMovie',[
+Route::post('/admin/deleteMovie/eraseMovie',[
     'uses'=>'AdminController@postEraseMovie',
-    'as'=>'erasemovie'
+    'as'=>'erasemovie',
+    'middleware' => 'roles'
+]);
+
+Route::get('/admin/addProjection',[
+    'uses' => 'AdminController@getAddProjection',
+    'as' => 'addprojection',
+    'middleware' => 'roles'
+]);
+
+Route::post('/admin/addProjection/addShow',[
+    'uses' => 'AdminController@postAddProjection',
+    'as' => 'addshow',
+    'middleware' => 'roles'
+]);
+
+Route::get('/admin/deleteProjection',[
+    'uses' => 'AdminController@getDeleteProjection',
+    'as' => 'deleteprojection',
+    'middleware' => 'roles'
+]);
+
+Route::post('/admin/addProjection/deleteShow',[
+    'uses' => 'AdminController@postDeleteProjection',
+    'as' => 'deleteshow',
+    'middleware' => 'roles'
 ]);

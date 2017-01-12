@@ -8,6 +8,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Room;
+use App\Show;
 use Illuminate\Http\Request;
 use App\User;
 use App\Movie;
@@ -84,8 +86,61 @@ class AdminController extends Controller
         File::delete('posters/' . $image_url);
 
         \Session::flash('success_flash_message', 'The movie has been deleted from database.');
-
-        $movies = Movie::all();
+        
         return redirect()->route('dash');
     }
+
+    public function  getAddProjection(){
+        $movies = Movie::all();
+        $disable = '';
+
+        if ($movies->isEmpty())
+        {
+            // dugme delete cemo da onemogucimo
+            $disable = 'disabled';
+        }
+        $rooms = Room::all();
+
+        return view('adminPanel.addProjection')->with(['movies' => $movies, 'disable' => $disable, 'rooms'=>$rooms]);
+    }
+
+    public function postAddProjection(Request $request)
+    {
+        $show = new Show();
+        $show->movie_id = Movie::findOrFail($request->input('movies'))->id;
+        $show->room_id = Room::findOrFail($request->input('rooms'))->id;
+        $show->date = $request->input('datetime');
+        $show->price = $request->input('price');
+
+
+        // sacuvamo u bazu
+        $show->save();
+
+        \Session::flash('success_flash_message', 'Your projection has been added to database.');
+
+        return redirect()->route('dash');
+    }
+    
+    public function  getDeleteProjection(){
+        $movies = Movie::all();
+        $disable = '';
+
+        if ($movies->isEmpty())
+        {
+            // dugme delete cemo da onemogucimo
+            $disable = 'disabled';
+        }
+        $shows = Show::all();
+        return view('adminPanel.deleteProjection')->with(['movies' => $movies, 'disable' => $disable,'shows' => $shows]);
+    }
+
+    public function postDeleteProjection(Request $request)
+    {
+       Show::findOrFail($request->input('shows'))->delete();
+
+        \Session::flash('success_flash_message', 'The projection has been deleted from database.');
+
+        return redirect()->route('dash');
+    }
+
 }

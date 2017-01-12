@@ -41,7 +41,7 @@
                 <table class="table">
                     <tr>
                         <td>
-                            <span class="glyphicon glyphicon-plus"></span> <a href="#">Add a movie projection</a>
+                            <span class="glyphicon glyphicon-plus"></span> <a href="{{route('addprojection')}}">Add a movie projection</a>
                         </td>
                     </tr>
                     <tr>
@@ -51,7 +51,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <span class="glyphicon glyphicon-trash"></span> <a href="#">Delete a movie projection</a>
+                            <span class="glyphicon glyphicon-trash"></span> <a href="{{route('deleteprojection')}}">Delete a movie projection</a>
                         </td>
                     </tr>
                 </table>
