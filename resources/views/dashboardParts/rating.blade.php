@@ -4,21 +4,17 @@
 @endsection
 @include('includes.headerForDash')
 @section('content')
-    <h1> Ovde mozete da ocenite filmove </h1>
-
-    <div class="container">
+    @if(count($errors) > 0)
         <div class="row">
-
-            <div class="col-md-8">
-                @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+            <div class="col-md-4 col-md-offset-4 error">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    @endif
 
          {{--      <form method="POST" action="{{route('addRating')}}" enctype="multipart/form-data">
 
@@ -49,14 +45,15 @@
                         <div class="col-md-6 col-md-offset-3">
                             <h3>Ocenjivanje</h3>
                             <form method="POST" action="{{route('addRating')}}" enctype="multipart/form-data">
-                                <div class="form-group >
-                                    <label for="movies">Choose movie</label>
+                                <div class="form-group">
+                                    <label for="movies"> Choose movie </label>
                                     <select class="form-control" name="movies">
                                         @foreach($movies as $movie)
                                             <option value="{{ $movie->id }}">{{ $movie->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
+
                                 <div class="form-group {{ $errors->has('rating') ? 'has-error' : '' }}">
                                     <label for="rating">Your rating</label>
                                     <input class="form-control" type="number" name="rating" id="rating" value="{{ Request::old('rating') }}">
@@ -66,4 +63,5 @@
                             </form>
                         </div>
                     </div>
+
 @endsection
