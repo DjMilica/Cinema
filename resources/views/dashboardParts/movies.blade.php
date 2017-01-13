@@ -39,6 +39,12 @@
                         <dd>{{$movie->director}}</dd>
                     </dl>
                 </li>
+                <li class="list-group-item">
+                    <dl class="dl-horizontal">
+                        <dt>Rating</dt>
+                        <dd>{{$movie->total}}</dd>
+                    </dl>
+                </li>
 
 
             </ul>

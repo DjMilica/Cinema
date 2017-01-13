@@ -13,7 +13,13 @@ class MovieController extends Controller{
 
     public function index()
     {
-        $movies = Movie::all();
+
+
+        $movies =  DB::table('movies')
+            ->join('ratings', 'movies.id', '=','ratings.movie_id')
+            ->groupBy('ratings.movie_id')
+            ->select('movies.*', DB::raw('avg(rating) as total'))
+            ->get();
 
         return view('dashboardParts.movies', ['movies' => $movies]);
     }
