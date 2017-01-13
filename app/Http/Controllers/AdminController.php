@@ -169,7 +169,13 @@ class AdminController extends Controller
     }
     public function getMovies(){
         $movies = Movie::all();
-        return view('adminPanel.movies')->with(['movies'=>$movies]);
+        $shows = DB::table('ratings')
+            ->join('movies', 'movies.id', '=','ratings.movie_id')
+            ->groupBy('ratings.movie_id')
+            ->select('ratings.movie_id','movies.name','movies.uri_poster', DB::raw('avg(rating) as total'),'movies.director','movies.year')
+            ->get();
+        
+        return view('adminPanel.movies')->with(['movies'=>$movies,'shows' => $shows]);
     }
 
     public function getEmailAll(){
@@ -213,5 +219,17 @@ class AdminController extends Controller
 
 
 
+    }
+
+    public function postRating($id){
+        
+        $usersRating = DB::table('ratings')
+                    -> join('movies', 'movies.id', '=','ratings.movie_id')
+                    ->join('users','users.id', '=','ratings.user_id')
+                    ->select('movies.name', 'users.first_name', 'users.last_name', 'ratings.rating')
+                    ->where('ratings.movie_id','=',$id)
+                    ->get();
+            
+        return view('adminPanel.adminRating')->with(['usersRating'=>$usersRating,'id'=>$id]);
     }
 }

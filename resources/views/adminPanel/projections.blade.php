@@ -15,16 +15,16 @@
                 <h3>           </h3>
                 <h3>           </h3>
                 @foreach($shows as $show)
-                            <div class="col-sm-6 col-md-4">
-                                <div class="thumbnail">
-                                    <div class="caption">
-                                        <h3>{{$show->name}}</h3>
-                                        <p class="description">Datum: {{$show->date}}</p>
-                                        <p class="description">Sala:  {{$show->description}}</p>
-                                        <p class="description">Cena: {{$show->price}}</p>
-                                    </div>
-                                </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <h3>{{$show->name}}</h3>
+                                <p class="description">Datum: {{$show->date}}</p>
+                                <p class="description">Sala:  {{$show->description}}</p>
+                                <p class="description">Cena: {{$show->price}}</p>
                             </div>
+                        </div>
+                    </div>
                 @endforeach
             </div>
         </div>

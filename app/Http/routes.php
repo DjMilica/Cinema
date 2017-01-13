@@ -193,3 +193,9 @@ Route::post('/admin/email/send',[
     'as' => 'sendemail',
     'middleware' => 'roles'
 ]);
+
+Route::get('/admin/movies/{id}',[
+    'uses' => 'AdminController@postRating',
+    'as' => 'ratingadmin',
+    'middleware' => 'roles'
+]);
