@@ -64,13 +64,8 @@ class DashboardController extends Controller
 
         //drugi argument su pravila!
         $this->validate($request,[
-            //za koji deo request-a => koja pravila razdvojena |, email pravilo postoji ugradjeno, users je tabela
-            //ovo radi jedino ako je u tabeli isto nazvana kolona: email!
-            //max oznacava maksimalan broj karaktera
-            'movie' => '',
-            'rating' => 'required|digits_between:0,10'
-
-
+            'movies' => '',
+            'rating' => 'required|numeric|between:0,10'
         ]);
         // ko je trenutno ulogovan, taj ocenjuje
         $rating = new Rating();
