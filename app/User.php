@@ -33,4 +33,7 @@ class User extends Model implements Authenticatable
             return false;
         }
     }
+    public function reservations() {
+        return $this->hasMany('App\Reservation');
+    }
 }

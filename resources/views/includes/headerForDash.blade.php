@@ -20,8 +20,7 @@
 
                     <li><a href="{{ route('aboutUs') }}">O nama</a></li>
                     <li><a href="{{ route('movies') }}">Filmovi</a></li>
-                    <li><a href="{{ route('repertoar') }}">Repertoar</a></li>
-                    <li><a href="{{ route('reservation') }}">Rezervacije</a></li>
+                    <li><a href="<?php echo url('dashboard/repertoar'); ?>">Repertoar</a></li>
                     <li><a href="{{ route('rating') }}">Ocenjivanje</a></li>
                     <li><a href="{{ route('contact') }}">Kontakt</a></li>
 

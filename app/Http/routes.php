@@ -53,11 +53,14 @@ Route::get('/dashboard/aboutUs', [
     'middleware' => 'auth'
 ]);
 
-Route::get('/dashboard/reservation', [
-    'uses'=>'DashboardController@getReservation',
-    'as'=>'reservation',
-    'middleware' => 'auth'
-]);
+//Route::get('/dashboard/reservation', [
+//    'uses'=>'DashboardController@getReservation',
+//    'as'=>'reservation',
+//    'middleware' => 'auth'
+//]);
+
+Route::resource('/dashboard/reservation', 'ReservationController');
+
 
 Route::get('/dashboard/rating', [
     'uses'=>'DashboardController@getRating',
@@ -84,20 +87,21 @@ Route::get('/dashboard/contact', [
 ]);
 
 Route::post('/dashboard/contact/send', 'ContactController@send');
+//
+//Route::get('/dashboard/repertoar', [
+//    'uses'=>'RepertoarController@index',
+//    'as'=>'repertoar',
+//    'middleware' => 'auth'
+//]);
+//zna da odmah treba da udje u repertoar kontroler i u edit i u update funkcije
+Route::resource('/dashboard/repertoar', 'RepertoarController', ['as'=>'repertoar', 'middleware' => 'auth']);
 
-Route::get('/dashboard/repertoar', [
-    'uses'=>'Repertoar@index',
-    'as'=>'repertoar',
-    'middleware' => 'auth'
-]);
 
 Route::get('/dashboard/movies', [
     'uses'=>'MovieController@index',
     'as'=>'movies',
     'middleware' => 'auth'
 ]);
-
-
 
 /* ADMIN RUTE */
 
