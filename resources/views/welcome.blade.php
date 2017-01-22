@@ -4,10 +4,62 @@
     Welcome!
 @endsection
 
+@section('navbar')
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
 
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i> <span class="light">Retro</span> Cinema
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li>
+                        <a class="page-scroll" href="#signup">Registracija</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{{route('signinform')}}">Prijava</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+        @if(count($errors) > 0)
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 error">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        @endif
+    </nav>
+@endsection
+
+@section('headerSec')
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <a href="#signup" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+@endsection
 @section('content')
 
-    <!-- About Section -->
     <section id="signup" class="container content-section text-center signup-content">
             <div class="row">
                 <div class="col-lg-6 col-lg-offset-3">
