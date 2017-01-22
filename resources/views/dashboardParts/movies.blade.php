@@ -2,6 +2,11 @@
 @section('title')
     Filmovi
 @endsection
+
+@section('stylesheets')
+    <link href="/css/all.css" rel="stylesheet">
+@endsection
+
 @include('includes.headerForDash')
 @section('content')
     <h1> Filmovi koji su se prikazuju u nasem bioskopu </h1>

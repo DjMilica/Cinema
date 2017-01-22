@@ -10,9 +10,13 @@
 @include('includes.headerForDash')
 @section('content')
     <div class="nasa">
+        <h1>  Retro bioskop </h1>
+    <p>
+        Retro bioskop prikazuje
 
+    </p>
 
-    </div>>
+    </div>
 
 
 @endsection

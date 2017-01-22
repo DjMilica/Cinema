@@ -2,6 +2,10 @@
 @section('title')
     Repertoar
 @endsection
+@section('stylesheets')
+    <link href="/css/all.css" rel="stylesheet">
+@endsection
+
 @include('includes.headerForDash')
 @section('content')
     @if(Session::has('success_flash_message'))

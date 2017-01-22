@@ -2,6 +2,11 @@
 @section('title')
     Contact
 @endsection
+
+@section('stylesheets')
+    <link href="/css/all.css" rel="stylesheet">
+@endsection
+
 @include('includes.headerForDash')
 @section('content')
 
@@ -10,15 +15,15 @@
             <div class="col-md-1"></div>
             <div class="col-md-10">
                     <address>
-                        <strong>Biskop Zvezda</strong><br>
-                        Terazije 25, <br>
+                        <strong>Retro bioskop</strong><br>
+                        Ljeska 25, <br>
                         11000  Beograd<br>
-                        Telefon: (123) 456-7890
+                        Telefon: (011) 456-7890
                     </address>
 
                     <address>
                         <strong>Email adresa</strong><br>
-                        <a href="mailto:#">zvezda.biskop@gmail.com</a>
+                        <a href="mailto:#">bioskop@gmail.com</a>
                     </address>
                 @if(Session::has('success_flash_message'))
                     <div class="alert alert-success">

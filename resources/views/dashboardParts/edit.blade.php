@@ -2,6 +2,11 @@
 @section('title')
 Reservation
 @endsection
+
+@section('stylesheets')
+    <link href="/css/all.css" rel="stylesheet">
+@endsection
+
 @include('includes.headerForDash')
 
 @section('content')     

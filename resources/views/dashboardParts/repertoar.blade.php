@@ -2,9 +2,13 @@
 @section('title')
     Repertoar
 @endsection
+@section('stylesheets')
+    <link href="/css/all.css" rel="stylesheet">
+@endsection
+
 @include('includes.headerForDash')
 @section('content')
-    <h1 class="bg-primary" style="padding-left: 35%"> Filmovi koji su na repertoaru </h1>
+    <h1  style="padding-left: 35%"> Filmovi koji su na repertoaru </h1>
     <br>
     <br>
 

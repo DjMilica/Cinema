@@ -2,6 +2,11 @@
 @section('title')
     Rating
 @endsection
+
+@section('stylesheets')
+    <link href="/css/all.css" rel="stylesheet">
+@endsection
+
 @include('includes.headerForDash')
 @section('content')
     @if(count($errors) > 0)
@@ -46,7 +51,7 @@
                             <h3>Ocenjivanje</h3>
                             <form method="POST" action="{{route('addRating')}}" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <label for="movies"> Choose movie </label>
+                                    <label for="movies"> Izaberi film </label>
                                     <select class="form-control" name="movies">
                                         @foreach($movies as $movie)
                                             <option value="{{ $movie->id }}">{{ $movie->name }}</option>
@@ -55,10 +60,10 @@
                                 </div>
 
                                 <div class="form-group {{ $errors->has('rating') ? 'has-error' : '' }}">
-                                    <label for="rating">Your rating</label>
+                                    <label for="rating">Vasa ocena</label>
                                     <input class="form-control" type="number" name="rating" id="rating" value="{{ Request::old('rating') }}">
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Oceni</button>
                                 <input type="hidden" name="_token" value="{{ Session::token() }}">
                             </form>
                         </div>
