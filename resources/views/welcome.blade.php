@@ -13,7 +13,7 @@
                 <div class="col-lg-6 col-lg-offset-3">
                     <form action="{{ route('signup') }}" method="post">
                         <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-                            <label for="email">e-mail</label>
+                            <label for="email">E-mail</label>
                             <input class="form-control" type="text" name="email" id="email" value="{{ Request::old('email') }}">
                         </div>
                         <div class="form-group {{ $errors->has('first_name') ? 'has-error' : '' }}">

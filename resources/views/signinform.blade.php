@@ -4,7 +4,9 @@
     Sign in
 @endsection
 
-
+@section('title')
+    <link href="css/grayscale.css" rel="stylesheet">
+@endsection
 
 @section('content')
     @if(count($errors) > 0)
