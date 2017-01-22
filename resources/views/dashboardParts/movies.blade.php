@@ -12,19 +12,21 @@
     <h1> Filmovi koji su se prikazuju u nasem bioskopu </h1>
     <br>
     <br>
-    @foreach($movies as $movie)
+    @foreach($movies->chunk(3) as $movieChunk)
 
-    <div class="media">
-        <div class="media-left media-middle">
-
+    <div class="row">
+        @foreach($movieChunk as $movie)
+            <div class="col-sm-6 col-md-4 ">
+                <div class="thumbnail" id="movie">
 
 
             <a href="#">
                 <img class="media-object" src="{{ asset('posters/' . $movie->uri_poster) }}" alt="...">
             </a>
-        </div>
-        <div class="media-body">
 
+        <div class="caption">
+            <h1>Naziv filma </h1>
+            <h3>{{$movie->name}} </h3>
             <ul class="list-group">
                 <li class="list-group-item" >
                     <dl class="dl-horizontal">
@@ -54,8 +56,10 @@
 
 
             </ul>
-
         </div>
+             </div>
+                </div>
+                    @endforeach
     </div>
     @endforeach
 
