@@ -4,7 +4,7 @@
     Sign in
 @endsection
 
-@include('includes.header')
+
 
 @section('content')
     @if(count($errors) > 0)
