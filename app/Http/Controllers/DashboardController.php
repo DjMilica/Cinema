@@ -11,7 +11,6 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Movie;
 use App\Rating;
-
 use Illuminate\Support\Facades\DB;
 use App\Show;
 use Illuminate\Http\Request;
@@ -71,13 +70,22 @@ class DashboardController extends Controller
         $rating = new Rating();
         $rating->user_id = $request->user()->id;
         $rating->movie_id = Movie::findOrFail($request->input('movies'))->id;
-
+        $temp = $rating->movie_id;
         $rating->rating = $request->input('rating');
 
 
         // sacuvamo u bazu
         $rating->save();
 
+        $grade = DB::table('ratings')
+                    ->where('movie_id',$temp)
+                    ->select(DB::raw('avg(rating) as total'))
+                    ->get();
+
+
+        DB::table('movies')
+            ->where('id', $temp)
+            ->update(['rating' => $grade[0]->total]);
 
         \Session::flash('success_flash_message', 'Uspesno ste ocenili film.');
         return redirect()->route('viewRating');
@@ -89,13 +97,13 @@ class DashboardController extends Controller
     public function viewRating()
     {
 
-        $shows = DB::table('ratings')
+        /*$shows = DB::table('ratings')
             ->join('movies', 'movies.id', '=','ratings.movie_id')
             ->groupBy('ratings.movie_id')
             ->select('movies.name','movies.uri_poster', DB::raw('avg(rating) as total'))
-            ->get();
-
-        return view('dashboardParts.viewRating', ['shows' => $shows]);
+            ->get();*/
+        $movies = Movie::all();
+        return view('dashboardParts.viewRating', ['movies' => $movies]);
 
     }
 

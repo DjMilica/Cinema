@@ -13,12 +13,12 @@
     <h1> Trenutne ocene filmova </h1>
     <br>
     <br>
-    @foreach($shows as $show)
+    @foreach($movies as $movie)
         <div>
             <a href="#">
-                <img class="media-object" src="{{ asset('posters/' . $show->uri_poster) }}" alt="..." >
+                <img class="media-object" src="{{ asset('posters/' . $movie->uri_poster) }}" alt="..." >
             </a>
-            <p>{{$show->total}} </p>
+            <p>{{$movie->rating}} </p>
 
         </div>
         <p> </p>

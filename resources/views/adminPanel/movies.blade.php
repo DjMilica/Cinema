@@ -11,17 +11,18 @@
                 @include('adminPanel.menuForEveryPage')
             </div>
             <div class="col-md-9">
-                @foreach($shows as $show)
+                @foreach($movies as $movie)
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <img src="{{asset('posters/' . $show->uri_poster)}}" alt="..." class="img-responsive">
+                            <img src="{{asset('posters/' . $movie->uri_poster)}}" alt="..." class="img-responsive">
                             <div class="caption">
-                                <h3>{{$show->name}}</h3>
-                                <p class="description">{{$show->year}}</p>
-                                <p class="description">{{$show->director}}</p>
-                                <p class="description">{{$show->total}}</p>
+                                <h3>{{$movie->name}}</h3>
+                                <p class="description">{{$movie->year}}</p>
+                                <p class="description">{{$movie->director}}</p>
+                                <p class="description">{{$movie->rating}}</p>
+                                <?php if($movie->rating==0) $disabled = 'disabled'; else $disabled = ''; ?>
                                 <div class="clearfix">
-                                    <a href="{{url('/admin/movies', $show->movie_id)}}" class="btn btn-success pull-right" role="button">Pogledaj ocene</a>
+                                    <a href="{{url('/admin/movies', $movie->id)}}" class="btn btn-success pull-right {{ $disabled }}" role="button">Pogledaj ocene</a>
                                 </div>
                             </div>
                         </div>

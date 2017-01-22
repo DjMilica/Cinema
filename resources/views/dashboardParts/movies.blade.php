@@ -42,7 +42,8 @@
                 <li class="list-group-item">
                     <dl class="dl-horizontal">
                         <dt>Rating</dt>
-                        <dd>{{$movie->total}}</dd>
+                        {{--<dd>{{$movie->total}}</dd>--}}
+                        <dd>{{$movie->rating}}</dd>
                     </dl>
                 </li>
 

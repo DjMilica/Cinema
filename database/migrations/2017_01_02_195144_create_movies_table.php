@@ -19,10 +19,7 @@ class CreateMoviesTable extends Migration
             $table->string('director');
             $table->string('yt_video_id', 255);
             $table->string('uri_poster', 255);
-            //$table->dateTime('time');
-            //$table->string('password')->unique();
-           // $table->string('poster'); slika filma
-           // $table->float('rating');
+            $table->float('rating')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
