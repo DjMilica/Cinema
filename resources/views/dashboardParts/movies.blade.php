@@ -43,7 +43,7 @@
                     <dl class="dl-horizontal">
                         <dt>Rating</dt>
                         {{--<dd>{{$movie->total}}</dd>--}}
-                        <dd>{{$movie->rating}}</dd>
+                        <dd>{{round($movie->rating,2)}}</dd>
                     </dl>
                 </li>
 

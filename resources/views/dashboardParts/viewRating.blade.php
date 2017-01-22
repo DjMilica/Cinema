@@ -18,7 +18,7 @@
             <a href="#">
                 <img class="media-object" src="{{ asset('posters/' . $movie->uri_poster) }}" alt="..." >
             </a>
-            <p>{{$movie->rating}} </p>
+            <p>{{round($movie->rating,2)}} </p>
 
         </div>
         <p> </p>
