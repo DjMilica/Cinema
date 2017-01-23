@@ -19,7 +19,6 @@ Reservation
                 <div class="section-header ">
                     <h1 class="text-standard " style="padding-left: 35%">Rezervišite kartu </h1>
                 </div><br><br><br>
-
         
                 <div class="col-lg-12">
                     <div class="box box-tiles style-gray">
@@ -65,8 +64,9 @@ Reservation
 
                             <div class="form-group">
                                 <div class="col-md-1">
-                                    <label class="control-label seats">Sedista</label>
+                                    <label class="control-label seats">Sedišta</label>
                                 </div>
+                                <center>
                                 <div class="col-md-11">
                                     <?php
                                         foreach($seats as $key=>$seat){
@@ -78,15 +78,16 @@ Reservation
                                             <?php
                                         } ?>
                                 </div>
+                                </center>
                             </div>
 
-                            
+                            <center>
                             <div class="form-group">
                                 <div class="form-footer" style="padding-left: 110px"> 
-                                    <button type="submit" class="btn btn-primary">Rezervisite</button>
+                                    <button type="submit" class="btn btn-primary">Rezervišite</button>
                                 </div>
                             </div>
-
+                            </center>
                             {!! Form::close() !!}
 
                         </div>
