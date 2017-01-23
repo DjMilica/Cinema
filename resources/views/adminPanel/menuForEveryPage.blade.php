@@ -17,11 +17,6 @@
                     </tr>
                     <tr>
                         <td>
-                            <span class="glyphicon glyphicon-pencil"></span> <a href="#">Edit a movie</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
                             <span class="glyphicon glyphicon-trash"></span> <a href="{{route('deletemovie')}}">Delete a movie</a>
                         </td>
                     </tr>
@@ -42,11 +37,6 @@
                     <tr>
                         <td>
                             <span class="glyphicon glyphicon-plus"></span> <a href="{{route('addprojection')}}">Add a movie projection</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="glyphicon glyphicon-pencil"></span> <a href="#">Edit a movie projection</a>
                         </td>
                     </tr>
                     <tr>

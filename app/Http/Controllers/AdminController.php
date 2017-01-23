@@ -158,6 +158,20 @@ class AdminController extends Controller
         $users = User::all();
         return view('adminPanel.customers')->with(['users'=>$users]);
     }
+
+    public function postViewReservations($id){
+
+        $users = DB::table('reservations')
+            ->join('shows','shows.id', '=','reservations.show_id')
+            ->join('movies','movies.id', '=','shows.movie_id')
+            ->join('seats','seats.id', '=','reservations.seat_id')
+            ->select('movies.name', 'shows.date', 'seats.row', 'seats.column')
+            ->where('reservations.user_id',$id)
+            ->get();
+        
+        return view('adminPanel.adminReservations')->with(['users'=>$users]);
+    }
+    
     public function getProjections(){
         $shows = DB::table('shows')
             ->join('movies', 'movies.id', '=','shows.movie_id')
@@ -172,7 +186,8 @@ class AdminController extends Controller
         
         return view('adminPanel.movies')->with(['movies'=>$movies]);
     }
-
+    
+    
     public function getEmailAll(){
         return view('adminPanel.emailAll');
     }

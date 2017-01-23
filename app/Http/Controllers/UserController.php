@@ -48,17 +48,13 @@ class UserController extends Controller{
         //posle ovoga uradjeno php artisan migrate jer je ubacio informacije o bazi, pa da bi se napravile tabele!
         //sada hocemo da kad se sign up-ujemo, da nas odmah prebaci na dashboard!
         //kod view-a zanemarujemo .blade.php!!!!
-        return redirect()->route('dashboard');
+        return redirect()->route('aboutUs');
         /* ovo je lose jer zelimo da login-ujemo naseg korisnika kad se signup-uje,
             a ovako smo ga samo preusmerili na /dashboard na koji mozemo da udjemo i bez sign in.
             Znaci, treba da zastitimo korisnika! zato dodajemo Auth::login($user) */
 
     }
-
-    public function getDashboard(){
-         return view('dashboardParts.dashboard');
-        //return redirect()->route('dash');
-    }
+    
     public function  postSignIn(Request $request){
         $this->validate($request,[
             //za koji deo request-a => koja pravila razdvojena |, email pravilo postoji ugradjeno, users je tabela
@@ -75,7 +71,7 @@ class UserController extends Controller{
                 return redirect()->route('dash');
             }
             else {
-                return redirect()->route('dashboard');
+                return redirect()->route('aboutUs');
             }
         }
         return redirect()->back();

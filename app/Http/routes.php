@@ -39,15 +39,8 @@ Route::get('/getsignin', [
 
 /* USER rute!!!!!! */
 
-Route::get('/dashboard',[
-    'uses'=> 'UserController@getDashboard',
-    'as'=> 'dashboard',
-    //hocemo da ova stranica bude vidljiva samo onima koji su logovani!
-    //auth a ne Authenticate kako je u App/Http/Middleware jer  u Kernel.php tako pise da treba da se naziva
-    'middleware' => 'auth'
-]);
 
-Route::get('/dashboard/aboutUs', [
+Route::get('/dashboard', [
     'uses'=>'DashboardController@getAboutUs',
     'as'=>'aboutUs',
     'middleware' => 'auth'
@@ -162,6 +155,12 @@ Route::post('/admin/addProjection/deleteShow',[
 Route::get('/admin/customers',[
     'uses' => 'AdminController@getCustomers',
     'as' => 'customers',
+    'middleware' => 'roles'
+]);
+
+Route::get('/admin/customers/{id}',[
+    'uses' => 'AdminController@postViewReservations',
+    'as' => 'reservcustom',
     'middleware' => 'roles'
 ]);
 
