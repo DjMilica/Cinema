@@ -17,7 +17,7 @@ Reservation
         <div class="">
             <div class="row">
                 <div class="section-header ">
-                    <h1 class="text-standard bg-primary" style="padding-left: 35%">Rezervišite kartu </h1>
+                    <h1 class="text-standard " style="padding-left: 35%">Rezervišite kartu </h1>
                 </div><br><br><br>
 
         
@@ -58,24 +58,24 @@ Reservation
                                     <label class="control-label">Mesto projekcije</label>
                                 </div>
                                 <div class="col-md-11">
-                                    <input disabled type="text" name="price" id = "price" class="form-control" value="{{ $room->description }}"> </input> 
+                                    <input disabled type="text" name="price" id = "price" class="form-control" value="{{ $room->description }}"> </input>
                                 </div>
                             </div>
 
 
                             <div class="form-group">
                                 <div class="col-md-1">
-                                    <label class="control-label">Sedista</label>
+                                    <label class="control-label seats">Sedista</label>
                                 </div>
                                 <div class="col-md-11">
                                     <?php
                                         foreach($seats as $key=>$seat){
-                                            if($key+1 == $numOfColumns){ 
+                                            if($key == $numOfColumns){
                                                 $numOfColumns += 10;?>
                                                 <br>        
-                                            <?php }else{  ?>
+                                            <?php }  ?>
                                                 <input id="squaredOne" type="checkbox" name='seat_id[]' value="{{ $seat->id }}" <?php foreach($reservationForShow as $key => $reservation){ if($reservation->seat_id == $seat->id) echo 'checked disabled'; else echo '';}  ?> />
-                                            <?php }
+                                            <?php
                                         } ?>
                                 </div>
                             </div>
