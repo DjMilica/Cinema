@@ -88,25 +88,12 @@ class DashboardController extends Controller
             ->update(['rating' => $grade[0]->total]);
 
         \Session::flash('success_flash_message', 'Uspesno ste ocenili film.');
-        return redirect()->route('viewRating');
+        return redirect()->route('rating');
     }
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function viewRating()
-    {
-
-        /*$shows = DB::table('ratings')
-            ->join('movies', 'movies.id', '=','ratings.movie_id')
-            ->groupBy('ratings.movie_id')
-            ->select('movies.name','movies.uri_poster', DB::raw('avg(rating) as total'))
-            ->get();*/
-        $movies = Movie::all();
-        return view('dashboardParts.viewRating', ['movies' => $movies]);
-
-    }
-
 
 
     public function getRepertoar()

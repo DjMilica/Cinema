@@ -9,6 +9,12 @@
 
 @include('includes.headerForDash')
 @section('content')
+    @if(Session::has('success_flash_message'))
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ Session::get('success_flash_message') }}
+        </div>
+    @endif
     @if(count($errors) > 0)
         <div class="row">
             <div class="col-md-4 col-md-offset-4 error">

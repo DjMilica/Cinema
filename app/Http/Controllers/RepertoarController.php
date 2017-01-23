@@ -15,6 +15,11 @@ use App\Room;
 
 class RepertoarController extends Controller {
 
+    function mojSort($a, $b) {
+
+        return ($a['datum'] < $b['datum'])? -1: 1;
+    }
+
     public function index() {
 
         // $dt = new DateTime();
@@ -28,8 +33,20 @@ class RepertoarController extends Controller {
 //            ->get();
         //nije potrebno ovo gore jer ima funkcija u modelu koja radi join select
         $shows = Show::all();
+        $niz = array();
+        foreach ($shows as $show){
+            $naziv = $show->movie->name;
+            $id = $show->id;
+            $mesto = $show->room->description;
+            $datum = $show->date;
+            $cena = $show->price;
+            $yt = $show->movie->yt_video_id;
+            $slika = $show->movie->uri_poster;
 
-        return view('dashboardParts.repertoar', ['shows' => $shows]);
+            $niz[] = array('naziv'=>$naziv,'id'=>$id,'mesto'=>$mesto,'datum'=>$datum,'cena'=>$cena,'yt'=>$yt,'slika'=>$slika,);
+        }
+        usort($niz, array($this, 'mojSort'));
+        return view('dashboardParts.repertoar', ['shows' => $niz]);
     }
 
     /**

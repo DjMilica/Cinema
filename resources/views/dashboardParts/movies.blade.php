@@ -48,8 +48,6 @@
                         <dd>{{round($movie->rating,2)}}</dd>
                     </dl>
                 </li>
-
-
             </ul>
         </div>
              </div>

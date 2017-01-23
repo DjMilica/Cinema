@@ -1,6 +1,3 @@
-
-
-
 var id;
 $(".reservation").click(function() {
     id = $(this).parent().attr('id').split("_").pop();
