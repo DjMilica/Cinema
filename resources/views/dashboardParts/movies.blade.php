@@ -25,28 +25,23 @@
             </a>
 
         <div class="caption">
-            <h1>Naziv filma </h1>
-            <h3>{{$movie->name}} </h3>
-            <ul class="list-group">
-                <li class="list-group-item" >
-                    <dl class="dl-horizontal">
-                        <dt>Naziv filma</dt>
-                        <dd>{{$movie->name}}</dd>
-                    </dl>
-                </li>
-                <li class="list-group-item">
+            <h3 id="list"> Naziv filma </h3>
+            <h1>{{$movie->name}} </h1>
+            <ul class="list-group" id="list">
+
+                <li class="list-group-item" id="list">
                     <dl class="dl-horizontal">
                         <dt>Godina</dt>
                         <dd>{{$movie->year}}</dd>
                     </dl>
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item" id="list">
                     <dl class="dl-horizontal">
                         <dt>Reziser</dt>
                         <dd>{{$movie->director}}</dd>
                     </dl>
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item" id="list">
                     <dl class="dl-horizontal">
                         <dt>Rating</dt>
                         {{--<dd>{{$movie->total}}</dd>--}}

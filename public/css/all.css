@@ -1,9 +1,12 @@
 .all{
-    background-color: rgba(137, 153, 155, 0.49);
+    background-color: rgba(137, 153, 155, 0.32);
 }
 
 #movie{
-    background-color: rgba(124, 128, 155, 0.49);
+    background-color: rgba(124, 128, 155, 0);
+}
+#list{
+    background-color: rgba(124, 128, 155, 0);
 }
 
 .seats{

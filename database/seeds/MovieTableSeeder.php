@@ -98,7 +98,7 @@ class MovieTableSeeder extends Seeder
         $movie10->save();
 
         $movie11 = new Movie();
-        $movie11->name = "Eternal Sunshine of the Spotless Mind";
+        $movie11->name = "Eternal Sunshine";
         $movie11->year = 2004;
         $movie11->director = "Michel Gondry";
         $movie11->yt_video_id = "https://www.youtube.com/watch?v=sY1S34973zA";
