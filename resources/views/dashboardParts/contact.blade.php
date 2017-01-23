@@ -16,15 +16,12 @@
             <div class="col-md-10">
                     <address>
                         <strong>Retro bioskop</strong><br>
-                        Ljeska 25, <br>
+                        Lješka 25, <br>
                         11000  Beograd<br>
                         Telefon: (011) 456-7890
                     </address>
 
-                    <address>
-                        <strong>Email adresa</strong><br>
-                        <a href="mailto:#">bioskop@gmail.com</a>
-                    </address>
+
                 @if(Session::has('success_flash_message'))
                     <div class="alert alert-success">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -42,7 +39,7 @@
                         <label for="text">Tekst</label>
                         <textarea name="text" class="form-control" placeholder="Napisite svoj zahtev..." required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-default">Posaljite</button>
+                    <button type="submit" class="btn btn-default">Pošaljite</button>
                 </form>
             </div>
         </div>

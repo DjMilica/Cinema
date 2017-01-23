@@ -9,13 +9,29 @@
 
 @include('includes.headerForDash')
 @section('content')
-    <h1> Filmovi koji su se prikazuju u nasem bioskopu </h1>
+    <h1> Filmovi koji su se prikazuju u našem bioskopu </h1>
     <br>
     <br>
+
     @foreach($movies->chunk(3) as $movieChunk)
 
     <div class="row">
         @foreach($movieChunk as $movie)
+            <!-- Trailer Modal -->
+                <div id="myModal" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h4 class="modal-title">YouTube Video</h4>
+                            </div>
+                            <div class="modal-body">
+                                <iframe id="cartoonVideo" width="560" height="315" src="{{ $movie->yt_video_id }}" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- info o filmu -->
             <div class="col-sm-6 col-md-4 ">
                 <div class="thumbnail" id="movie">
 
@@ -49,6 +65,7 @@
                     </dl>
                 </li>
             </ul>
+            <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">Trailer</button>
         </div>
              </div>
                 </div>
